@@ -1,1 +1,2 @@
-# fun-number-facts-fixed
+# FunNumberFacts
+Rest API Example for Week 3

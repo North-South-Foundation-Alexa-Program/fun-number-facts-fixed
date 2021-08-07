@@ -1,0 +1,204 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "fun number facts",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "RandomFactIntent",
+          "slots": [
+            {
+              "name": "fact",
+              "type": "FactType",
+              "samples": [
+                "tell me a random {fact} fact",
+                "give me a random {fact} fact",
+                "give a random {fact} fact",
+                "tell a random {fact} fact",
+                "i want a random {fact} fact",
+                "i want random {fact} fact",
+                "{fact}"
+              ]
+            }
+          ],
+          "samples": [
+            "i want random fact",
+            "tell me a random fact",
+            "i want random {fact} fact",
+            "give me a fandom fact",
+            "give a random fact",
+            "tell a random fact",
+            "i want a random fact",
+            "i want a random {fact} fact",
+            "tell a random {fact} fact",
+            "give a random {fact} fact",
+            "give me a random {fact} fact",
+            "tell me a random {fact} fact"
+          ]
+        },
+        {
+          "name": "NumberFactIntent",
+          "slots": [
+            {
+              "name": "fact",
+              "type": "FactType",
+              "samples": [
+                "{fact} fact",
+                "{fact}"
+              ]
+            },
+            {
+              "name": "number",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{number}"
+              ]
+            }
+          ],
+          "samples": [
+            "tell me fact for {number}",
+            "tell me a fact for {number}",
+            "give me fact for {number}",
+            "give me a fact for {number}",
+            "I want fact for {number}",
+            "I want a fact for {number}",
+            "give a fact for {number}",
+            "tell me {fact} fact for {number}",
+            "tell me a {fact} fact for {number}",
+            "give me {fact} fact for {number}",
+            "give me a {fact} fact for {number}",
+            "I want {fact} fact for {number}",
+            "I want a {fact} fact for {number}",
+            "give a {fact} fact for {number}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "math"
+              }
+            },
+            {
+              "name": {
+                "value": "date"
+              }
+            },
+            {
+              "name": {
+                "value": "year"
+              }
+            },
+            {
+              "name": {
+                "value": "trivia"
+              }
+            }
+          ],
+          "name": "FactType"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "RandomFactIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "fact",
+              "type": "FactType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1313717504263.1001485324755"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NumberFactIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "fact",
+              "type": "FactType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.427877657508.735156041483"
+              }
+            },
+            {
+              "name": "number",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.427877657508.978221506963"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1313717504263.1001485324755",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Could you tell me whether you want a trivia, year, date, or math fact?"
+          },
+          {
+            "type": "PlainText",
+            "value": "What kind of number fact do you want between trivia, year, date, or math?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.427877657508.735156041483",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Do you want a trivia, year, date, or math fact?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.427877657508.978221506963",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What number do you want a fact for?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "5"
+}
